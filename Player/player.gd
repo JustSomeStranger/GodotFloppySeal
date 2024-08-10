@@ -29,7 +29,7 @@ func _process(delta):
 	$DebugLabel.text = "Velocity " + str(velocity) + "\nRotation: " + str(rotation)
 
 
-
+# Hi I'm a cheeky little comment :3
 
 
 
