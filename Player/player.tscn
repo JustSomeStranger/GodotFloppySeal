@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cej1ntkuxagcg"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_x2lpj"]
+[ext_resource type="Texture2D" uid="uid://cimydeu6gju8f" path="res://Player/patient_seal.png" id="2_xpaub"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7mubr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xpaub")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="Area2D"]
+position = Vector2(150, 238)
+script = ExtResource("1_x2lpj")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_7mubr")
+
+[node name="SealHitbox" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-31, -24, -15, -30, -3, -32, 11, -30, 23, -27, 37, -19, 42, -13, 48, 1, 52, 15, 52, 23, 48, 29, 44, 34, 35, 36, 19, 37, -9, 37, -35, 32, -46, 28, -51, 19, -52, 2, -45, -13)
+
+[node name="DebugLabel" type="Label" parent="."]
+offset_left = 78.0
+offset_top = -31.0
+offset_right = 247.0
+offset_bottom = 35.0

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://6e28roawpy67"]
+
+[ext_resource type="PackedScene" uid="uid://cej1ntkuxagcg" path="res://Player/player.tscn" id="1_yxyov"]
+[ext_resource type="PackedScene" uid="uid://b4jrq82ju1sbr" path="res://Pipes/pipe_cheese.tscn" id="3_iktag"]
+
+[node name="Main" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_yxyov")]
+
+[node name="Pipe" parent="." instance=ExtResource("3_iktag")]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4jrq82ju1sbr"]
+
+[ext_resource type="Script" path="res://Pipes/pipe_cheese.gd" id="1_2dks0"]
+[ext_resource type="Texture2D" uid="uid://c0ntr0pjg6wut" path="res://Pipes/block_of_cheese.jpg" id="1_vo5mu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xi0ex"]
+size = Vector2(52, 262)
+
+[node name="PipeCheese" type="Area2D"]
+position = Vector2(1000, 0)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_2dks0")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(26, 131)
+scale = Vector2(0.477064, 0.615024)
+texture = ExtResource("1_vo5mu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(26, 131)
+shape = SubResource("RectangleShape2D_xi0ex")
+metadata/_edit_group_ = true
