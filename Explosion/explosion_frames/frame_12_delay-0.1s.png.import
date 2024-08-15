@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://36ud4gevut82"
-path="res://.godot/imported/WarmCup.svg-4ed9f1fe143f27c52ab286aee7eee91a.ctex"
+uid="uid://b1jmmrm44cjnd"
+path="res://.godot/imported/frame_12_delay-0.1s.png-54c7a520b0970cc4178aa2a48c4d2f06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://WarmCup.svg"
-dest_files=["res://.godot/imported/WarmCup.svg-4ed9f1fe143f27c52ab286aee7eee91a.ctex"]
+source_file="res://Explosion/explosion_frames/frame_12_delay-0.1s.png"
+dest_files=["res://.godot/imported/frame_12_delay-0.1s.png-54c7a520b0970cc4178aa2a48c4d2f06.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

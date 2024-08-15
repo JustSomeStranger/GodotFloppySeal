@@ -1,22 +1,25 @@
 [gd_scene load_steps=3 format=3 uid="uid://cej1ntkuxagcg"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_x2lpj"]
-[ext_resource type="Texture2D" uid="uid://cimydeu6gju8f" path="res://Player/patient_seal.png" id="2_xpaub"]
+[ext_resource type="Texture2D" uid="uid://t6kodp61vjdg" path="res://Player/patient_bomber_seal.png" id="2_0yu23"]
 
 [node name="Player" type="Area2D"]
-position = Vector2(150, 238)
+position = Vector2(151, 238)
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_x2lpj")
-metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_xpaub")
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(-6.67572e-06, 1.875)
+scale = Vector2(0.0991296, 0.100494)
+texture = ExtResource("2_0yu23")
 
-[node name="SealHitbox" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-31, -24, -15, -30, -3, -32, 11, -30, 23, -27, 37, -19, 42, -13, 48, 1, 52, 15, 52, 23, 48, 29, 44, 34, 35, 36, 19, 37, -9, 37, -35, 32, -46, 28, -51, 19, -52, 2, -45, -13)
+[node name="Hitbox" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-26.25, -25, -3.75, -30, 20, -26.25, 36.25, -16.25, 45, -2.5, 50, 15, 48.75, 25, 42.5, 32.5, 32.5, 35, -5, 35, -23.75, 32.5, -40, 28.75, -48.75, 22.5, -48.75, 1.25, -42.5, -11.25)
 
 [node name="DebugLabel" type="Label" parent="."]
 offset_left = 78.0
 offset_top = -31.0
 offset_right = 247.0
 offset_bottom = 35.0
+
+[connection signal="area_entered" from="." to="." method="die"]

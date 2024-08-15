@@ -2,16 +2,18 @@
 
 [ext_resource type="Script" path="res://main.gd" id="1_siomh"]
 [ext_resource type="PackedScene" uid="uid://cej1ntkuxagcg" path="res://Player/player.tscn" id="1_yxyov"]
-[ext_resource type="PackedScene" uid="uid://b4jrq82ju1sbr" path="res://Pipes/pipe_cheese.tscn" id="3_iktag"]
+[ext_resource type="PackedScene" uid="uid://bi572lwhngucw" path="res://Explosion/explosion.tscn" id="3_2tnug"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_siomh")
-PIPE_GAP_DISTANCE = 0
 
 [node name="Player" parent="." instance=ExtResource("1_yxyov")]
+position = Vector2(188, 220)
 
-[node name="Pipe" parent="." instance=ExtResource("3_iktag")]
+[node name="PipeTimer" type="Timer" parent="."]
 
-[node name="PipeSpawnTimer" type="Timer" parent="Pipe"]
+[node name="Explosion" parent="." instance=ExtResource("3_2tnug")]
 
 [connection signal="area_entered" from="Player" to="." method="_on_player_area_entered"]
+[connection signal="player_died" from="Player" to="Explosion" method="player_died"]
+[connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]

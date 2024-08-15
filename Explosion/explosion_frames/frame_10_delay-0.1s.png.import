@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cimydeu6gju8f"
-path="res://.godot/imported/patient_seal.png-508fe711845a711fbe2f09de0864fff7.ctex"
+uid="uid://rdqxkl1l700m"
+path="res://.godot/imported/frame_10_delay-0.1s.png-edaed5aaf3c30ae41d8ec87efbd04fdd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/patient_seal.png"
-dest_files=["res://.godot/imported/patient_seal.png-508fe711845a711fbe2f09de0864fff7.ctex"]
+source_file="res://Explosion/explosion_frames/frame_10_delay-0.1s.png"
+dest_files=["res://.godot/imported/frame_10_delay-0.1s.png-edaed5aaf3c30ae41d8ec87efbd04fdd.ctex"]
 
 [params]
 
