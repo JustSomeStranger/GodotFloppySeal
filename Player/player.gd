@@ -26,17 +26,4 @@ func _process(delta):
 	rotation = velocity / TERMINAL_VELOCITY * MAX_TILT * PI
 	#rotation = MAX_TILT * PI / 10 * velocity**(1.0/3.0) # Uses quadratic roots, doesn't work with negative numbers :(
 	
-	$DebugLabel.text = "Velocity " + str(velocity) + "\nRotation: " + str(rotation)
-
-
-# Hi I'm a cheeky little comment :3
-
-
-
-
-
-
-
-
-
- 
+	$DebugLabel.text = "Velocity " + str(velocity) + "\nRotation: " + str(rotation) + "\nScreen dimensions: " + str(screen_size)

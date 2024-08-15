@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://6e28roawpy67"]
+[gd_scene load_steps=4 format=3 uid="uid://6e28roawpy67"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_siomh"]
 [ext_resource type="PackedScene" uid="uid://cej1ntkuxagcg" path="res://Player/player.tscn" id="1_yxyov"]
 [ext_resource type="PackedScene" uid="uid://b4jrq82ju1sbr" path="res://Pipes/pipe_cheese.tscn" id="3_iktag"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_siomh")
+PIPE_GAP_DISTANCE = 0
 
 [node name="Player" parent="." instance=ExtResource("1_yxyov")]
 
 [node name="Pipe" parent="." instance=ExtResource("3_iktag")]
+
+[node name="PipeSpawnTimer" type="Timer" parent="Pipe"]
+
+[connection signal="area_entered" from="Player" to="." method="_on_player_area_entered"]
