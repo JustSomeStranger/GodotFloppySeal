@@ -20,17 +20,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	velocity += GRAVITY_STRENGTH
 	if Input.is_action_just_pressed("jump"):
 		velocity = -JUMP_VELOCITY
-
+	else:
+		velocity += GRAVITY_STRENGTH
 	velocity = clamp(velocity, -JUMP_VELOCITY, TERMINAL_VELOCITY)
+	
 	position.y += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
-
 	rotation = velocity / TERMINAL_VELOCITY * MAX_TILT * PI
 	
 	$DebugLabel.text = "Velocity " + str(velocity) + "\nRotation: " + str(rotation) + "\nScreen dimensions: " + str(screen_size)
+
+
 
 func die(area: Area2D) -> void:
 	if dead: return
