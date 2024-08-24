@@ -2,7 +2,7 @@ extends Node
 
 var PIPE_GAP_DISTANCE = 200
 var screen_size
-var pipe_scene = preload("res://Pipes/pipe_cheese.tscn")
+var PIPE_SCENE := preload("res://Pipes/pipe_cheese.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,20 +19,23 @@ func _process(delta):
 
 func spawn_pipe_pair():
 	var pipe_size
-	var pipe_instance
+	var instance
+	
+	# Calculate possible offset so that pipes remain inside window
+	var offset: float
 	
 	# Spawn top pipe
-	pipe_instance = pipe_scene.instantiate()
-	pipe_instance.position = \
+	instance = PIPE_SCENE.instantiate()
+	instance.position = \
 			Vector2(screen_size.x, 0)
-	add_child(pipe_instance)
+	add_child(instance)
 	
 	# Spawn bottom pipe
-	pipe_size = pipe_instance.get_node("Sprite2D").texture.get_size() * pipe_instance.scale
-	pipe_instance = pipe_scene.instantiate()
-	pipe_instance.position = \
+	pipe_size = instance.get_node("Sprite2D").texture.get_size() * instance.scale
+	instance = PIPE_SCENE.instantiate()
+	instance.position = \
 			Vector2(screen_size.x, (pipe_size.y + PIPE_GAP_DISTANCE))
-	add_child(pipe_instance)
+	add_child(instance)
 
 
 

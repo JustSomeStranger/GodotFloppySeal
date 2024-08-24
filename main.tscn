@@ -8,7 +8,7 @@
 script = ExtResource("1_siomh")
 
 [node name="Player" parent="." instance=ExtResource("1_yxyov")]
-position = Vector2(188, 220)
+position = Vector2(-4.76837e-07, 9.09495e-13)
 
 [node name="PipeTimer" type="Timer" parent="."]
 

@@ -14,7 +14,7 @@ var velocity := 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
-	var position = Vector2(150, 300)
+	position = Vector2(150, screen_size.y/2)
 	$DebugLabel.show()
 
 
@@ -29,11 +29,8 @@ func _process(delta):
 	position = position.clamp(Vector2.ZERO, screen_size)
 
 	rotation = velocity / TERMINAL_VELOCITY * MAX_TILT * PI
-	#rotation = MAX_TILT * PI / 10 * velocity**(1.0/3.0) # Uses quadratic roots, doesn't work with negative numbers :(
 	
 	$DebugLabel.text = "Velocity " + str(velocity) + "\nRotation: " + str(rotation) + "\nScreen dimensions: " + str(screen_size)
-
-
 
 func die(area: Area2D) -> void:
 	if dead: return

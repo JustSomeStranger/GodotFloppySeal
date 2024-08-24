@@ -23,9 +23,6 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_q2kyp")
-}, {
-"duration": 1.0,
 "texture": ExtResource("3_slw1m")
 }, {
 "duration": 1.0,
@@ -72,6 +69,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("18_ne4na")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_q2kyp")
 }],
 "loop": false,
 "name": &"explosion",
@@ -80,7 +80,10 @@ animations = [{
 
 [node name="Explosion" type="Node2D"]
 script = ExtResource("1_jhag6")
+metadata/_edit_group_ = true
 
 [node name="Frames" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_82thj")
 animation = &"explosion"
+frame = 16
+frame_progress = 1.0
