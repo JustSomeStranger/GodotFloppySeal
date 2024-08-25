@@ -33,7 +33,6 @@ func _process(delta):
 	$DebugLabel.text = "Velocity " + str(velocity) + "\nRotation: " + str(rotation) + "\nScreen dimensions: " + str(screen_size)
 
 
-
 func die(area: Area2D) -> void:
 	if dead: return
 	#dead = true

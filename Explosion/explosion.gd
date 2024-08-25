@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-# ALERT: Something is funky with the explosion position
+# TODO: Something is funky with the explosion position
 func player_died(player_position) -> void:
 	var instance = EXPLOSION_SCENE.instantiate()
 	var instance_frames = instance.get_node("Frames")

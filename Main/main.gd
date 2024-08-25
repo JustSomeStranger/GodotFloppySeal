@@ -1,9 +1,12 @@
 extends Node
 
+signal game_started
+
 var PIPE_GAP_DISTANCE := 200.0
 var PIPE_SCENE := preload("res://Pipes/pipe_cheese.tscn")
 var PLAYER_SCENE = preload("res://Player/player.tscn")
 var screen_size
+var game_running := false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,7 +22,7 @@ func _process(delta):
 
 
 
-func spawn_pipe_pair():
+func spawn_pipe_pair() -> void:
 	var instance
 	
 	# Calculate possible offset so that pipes remain inside window
@@ -45,8 +48,6 @@ func _on_pipe_timer_timeout() -> void:
 
 
 
-func start_game():
+func start_game() -> void:
+	game_started.emit()
 	$PipeTimer.start()
-	
-	var player_instance = PLAYER_SCENE.instantiate()
-	add_child(player_instance)

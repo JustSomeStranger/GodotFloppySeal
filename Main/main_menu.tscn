@@ -1,9 +1,85 @@
-[gd_scene format=3 uid="uid://caqhraosq42oc"]
+[gd_scene load_steps=2 format=3 uid="uid://caqhraosq42oc"]
 
-[node name="Main Menu" type="Control"]
+[ext_resource type="Script" path="res://Main/main_menu.gd" id="1_bu6px"]
+
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_stretch_ratio = 0.0
+script = ExtResource("1_bu6px")
+
+[node name="LeftSidePadding" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 205.0
+grow_vertical = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 350
+
+[node name="PressToStart" type="Label" parent="LeftSidePadding"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Press SPACE to start"
+metadata/_edit_use_anchors_ = true
+
+[node name="TitleContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -584.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_bottom = 0
+
+[node name="Title" type="Label" parent="TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "FLOPPY
+SEAL"
+horizontal_alignment = 1
+
+[node name="SettingsContainer" type="MarginContainer" parent="TitleContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 220
+
+[node name="VSplitContainer" type="VSplitContainer" parent="TitleContainer/SettingsContainer"]
+layout_mode = 2
+split_offset = 44
+
+[node name="Settings" type="Button" parent="TitleContainer/SettingsContainer/VSplitContainer"]
+layout_mode = 2
+text = "SETTINGS
+"
+
+[node name="Quit" type="Button" parent="TitleContainer/SettingsContainer/VSplitContainer"]
+layout_mode = 2
+text = "QUIT"
+
+[node name="Creator" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -248.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Created by @_JustSomeStranger"
+
+[connection signal="button_up" from="TitleContainer/SettingsContainer/VSplitContainer/Quit" to="." method="_on_quit_button_up"]
