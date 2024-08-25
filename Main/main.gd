@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 signal game_started
 
@@ -18,27 +18,24 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("debug"):
-		spawn_pipe_pair()
+		print("DEBUG KEY PRESSED")
 
 
 
 func spawn_pipe_pair() -> void:
-	var instance
-	
-	# Calculate possible offset so that pipes remain inside window
-	var offset: float
+	var offset = randf() * (screen_size.y - PIPE_GAP_DISTANCE)
 	
 	# Spawn top pipe
-	instance = PIPE_SCENE.instantiate()
+	var instance = PIPE_SCENE.instantiate()
 	instance.position = \
-			Vector2(screen_size.x, 0)
+			Vector2(screen_size.x, offset)
 	add_child(instance)
 	
 	# Spawn bottom pipe
 	var pipe_size = instance.get_node("Sprite2D").texture.get_size() * instance.scale
 	instance = PIPE_SCENE.instantiate()
 	instance.position = \
-			Vector2(screen_size.x, (pipe_size.y + PIPE_GAP_DISTANCE))
+			Vector2(screen_size.x, pipe_size.y + PIPE_GAP_DISTANCE + offset)
 	add_child(instance)
 
 

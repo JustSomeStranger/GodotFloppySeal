@@ -4,18 +4,25 @@
 [ext_resource type="Texture2D" uid="uid://c0ntr0pjg6wut" path="res://Pipes/block_of_cheese.jpg" id="1_vo5mu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xi0ex"]
-size = Vector2(109, 426)
+size = Vector2(110, 425)
 
 [node name="PipeCheese" type="Area2D"]
-position = Vector2(1014.3, 65.6)
-scale = Vector2(0.5, 0.8)
+scale = Vector2(0.5, 1.41)
 script = ExtResource("1_2dks0")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(26, 131)
+position = Vector2(0.504587, 0.997712)
+scale = Vector2(1.00917, 0.997653)
 texture = ExtResource("1_vo5mu")
+offset = Vector2(54, -214)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(25.9999, 131)
+position = Vector2(55, -212.5)
 shape = SubResource("RectangleShape2D_xi0ex")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(55, -212.5)
+scale = Vector2(5.7, 21.25)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exit"]

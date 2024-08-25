@@ -14,8 +14,8 @@ func _process(delta):
 	position.x -= PIPE_SPEED * delta 
 	
 	var pipe_size = $Sprite2D.texture.get_size() * scale
-	if position.x < 0 - pipe_size.x:
-		queue_free()
 
 
-# pipe_size = instance.get_node("Sprite2D").texture.get_size() * instance.scale
+
+func _on_screen_exit() -> void:
+	queue_free()
