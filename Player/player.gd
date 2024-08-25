@@ -8,7 +8,7 @@ var velocity := 0
 @export var JUMP_VELOCITY := 500.0
 @export var TERMINAL_VELOCITY := 1200.0
 @export var GRAVITY_STRENGTH := 30.0
-@export var MAX_TILT := 0.4
+@export var MAX_TILT := 0.4  # Counted in radians
 
 
 # Called when the node enters the scene tree for the first time.
@@ -31,6 +31,7 @@ func _process(delta):
 	rotation = velocity / TERMINAL_VELOCITY * MAX_TILT * PI
 	
 	$DebugLabel.text = "Velocity " + str(velocity) + "\nRotation: " + str(rotation) + "\nScreen dimensions: " + str(screen_size)
+
 
 
 func die(area: Area2D) -> void:

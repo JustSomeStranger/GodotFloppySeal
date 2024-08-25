@@ -11,6 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_stretch_ratio = 0.0
 script = ExtResource("1_bu6px")
+metadata/_edit_group_ = true
 
 [node name="LeftSidePadding" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -18,7 +19,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 205.0
 grow_vertical = 2
-theme_override_constants/margin_left = 70
+theme_override_constants/margin_left = 65
 theme_override_constants/margin_top = 350
 
 [node name="PressToStart" type="Label" parent="LeftSidePadding"]
@@ -56,16 +57,17 @@ theme_override_constants/margin_top = 200
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 220
 
-[node name="VSplitContainer" type="VSplitContainer" parent="TitleContainer/SettingsContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleContainer/SettingsContainer"]
 layout_mode = 2
-split_offset = 44
+theme_override_constants/separation = 10
+alignment = 1
 
-[node name="Settings" type="Button" parent="TitleContainer/SettingsContainer/VSplitContainer"]
+[node name="Settings" type="Button" parent="TitleContainer/SettingsContainer/VBoxContainer"]
 layout_mode = 2
 text = "SETTINGS
 "
 
-[node name="Quit" type="Button" parent="TitleContainer/SettingsContainer/VSplitContainer"]
+[node name="Quit" type="Button" parent="TitleContainer/SettingsContainer/VBoxContainer"]
 layout_mode = 2
 text = "QUIT"
 
@@ -82,4 +84,4 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Created by @_JustSomeStranger"
 
-[connection signal="button_up" from="TitleContainer/SettingsContainer/VSplitContainer/Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="TitleContainer/SettingsContainer/VBoxContainer/Quit" to="." method="_on_quit_button_up"]

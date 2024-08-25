@@ -8,6 +8,7 @@ var screen_size
 func _ready():
 	pass
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position.x -= PIPE_SPEED * delta 
