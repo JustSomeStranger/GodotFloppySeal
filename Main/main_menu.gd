@@ -12,5 +12,5 @@ func _process(delta):
 
 
 
-func _on_quit_button_up():
+func _on_quit_button_up() -> void:
 	get_tree().quit()

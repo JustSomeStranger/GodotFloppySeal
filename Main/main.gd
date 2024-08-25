@@ -6,7 +6,6 @@ var PIPE_GAP_DISTANCE := 200.0
 var PIPE_SCENE := preload("res://Pipes/pipe_cheese.tscn")
 var PLAYER_SCENE = preload("res://Player/player.tscn")
 var screen_size
-var game_running := false
 
 
 # Called when the node enters the scene tree for the first time.

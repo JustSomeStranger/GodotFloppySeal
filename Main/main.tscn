@@ -10,10 +10,12 @@ script = ExtResource("1_c7k8c")
 
 [node name="PipeTimer" type="Timer" parent="."]
 
-[node name="MainMenu" parent="." instance=ExtResource("2_pyw4l")]
-
 [node name="Player" parent="." instance=ExtResource("3_8kjlj")]
 
 [node name="PipeCheese" parent="." instance=ExtResource("4_23uiq")]
+
+[node name="MainMenu" parent="." instance=ExtResource("2_pyw4l")]
+offset_right = 1000.0
+offset_bottom = 600.0
 
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
