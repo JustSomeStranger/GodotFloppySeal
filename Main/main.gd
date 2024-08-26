@@ -1,7 +1,5 @@
 extends Node2D
 
-signal game_started
-
 var PIPE_GAP_DISTANCE := 200.0
 var PIPE_SCENE := preload("res://Pipes/pipe_cheese.tscn")
 var PLAYER_SCENE = preload("res://Player/player.tscn")
@@ -11,13 +9,16 @@ var screen_size
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport().size
-	start_game()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("debug"):
 		print("DEBUG KEY PRESSED")
+	if Input.is_action_just_pressed("jump"):
+		start_game()
+		
+		
 
 
 
@@ -45,5 +46,6 @@ func _on_pipe_timer_timeout() -> void:
 
 
 func start_game() -> void:
-	game_started.emit()
+	$MainMenu.hide()
 	$PipeTimer.start()
+	$Player.process_mode = Node.PROCESS_MODE_ALWAYS  # Unpause the player

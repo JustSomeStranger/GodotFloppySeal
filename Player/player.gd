@@ -16,6 +16,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	position = Vector2(150, screen_size.y/2)
 	$DebugLabel.show()
+	process_mode = Node.PROCESS_MODE_DISABLED
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
