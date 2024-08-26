@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p38kllew1nk2"
-path="res://.godot/imported/frame_09_delay-0.1s.png-7d3ca18b87e35d4345e8ce62e45a6cf4.ctex"
+uid="uid://feevmgxgpeym"
+path="res://.godot/imported/frame_08_delay-0.1s.png-98989e70e8cd9caee3a56e5324ca9558.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Explosion/explosion_frames/frame_09_delay-0.1s.png"
-dest_files=["res://.godot/imported/frame_09_delay-0.1s.png-7d3ca18b87e35d4345e8ce62e45a6cf4.ctex"]
+source_file="res://Player/explosion_frames/frame_08_delay-0.1s.png"
+dest_files=["res://.godot/imported/frame_08_delay-0.1s.png-98989e70e8cd9caee3a56e5324ca9558.ctex"]
 
 [params]
 

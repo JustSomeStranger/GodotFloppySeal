@@ -42,3 +42,5 @@ func die(area: Area2D) -> void:
 	if not game_running: return
 	game_running = false
 	player_died.emit(position)
+
+	$Explosion.play()

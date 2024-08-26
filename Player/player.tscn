@@ -1,7 +1,89 @@
-[gd_scene load_steps=3 format=3 uid="uid://cej1ntkuxagcg"]
+[gd_scene load_steps=21 format=3 uid="uid://cej1ntkuxagcg"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_x2lpj"]
 [ext_resource type="Texture2D" uid="uid://t6kodp61vjdg" path="res://Player/patient_bomber_seal.png" id="2_0yu23"]
+[ext_resource type="Texture2D" uid="uid://feevmgxgpeym" path="res://Player/explosion_frames/frame_08_delay-0.1s.png" id="3_ufowq"]
+[ext_resource type="Texture2D" uid="uid://p38kllew1nk2" path="res://Player/explosion_frames/frame_09_delay-0.1s.png" id="4_gmfjc"]
+[ext_resource type="Texture2D" uid="uid://rdqxkl1l700m" path="res://Player/explosion_frames/frame_10_delay-0.1s.png" id="5_7a3fu"]
+[ext_resource type="Texture2D" uid="uid://b2hx5w4ft3agj" path="res://Player/explosion_frames/frame_11_delay-0.1s.png" id="6_gnatm"]
+[ext_resource type="Texture2D" uid="uid://b1jmmrm44cjnd" path="res://Player/explosion_frames/frame_12_delay-0.1s.png" id="7_clryr"]
+[ext_resource type="Texture2D" uid="uid://bbh7lsoxnw4dl" path="res://Player/explosion_frames/frame_13_delay-0.1s.png" id="8_54k7o"]
+[ext_resource type="Texture2D" uid="uid://bec5jhbb0g4xg" path="res://Player/explosion_frames/frame_14_delay-0.1s.png" id="9_531b8"]
+[ext_resource type="Texture2D" uid="uid://c7warxqo0e6v2" path="res://Player/explosion_frames/frame_15_delay-0.1s.png" id="10_yahut"]
+[ext_resource type="Texture2D" uid="uid://8358agrig5rl" path="res://Player/explosion_frames/frame_16_delay-0.1s.png" id="11_vh8wx"]
+[ext_resource type="Texture2D" uid="uid://b551p0v8udiyk" path="res://Player/explosion_frames/frame_00_delay-0.1s.png" id="12_jgbif"]
+[ext_resource type="Texture2D" uid="uid://bwfjpasrcw61k" path="res://Player/explosion_frames/frame_01_delay-0.1s.png" id="13_xpqu7"]
+[ext_resource type="Texture2D" uid="uid://c4gr5kcc5p40f" path="res://Player/explosion_frames/frame_02_delay-0.1s.png" id="14_smw34"]
+[ext_resource type="Texture2D" uid="uid://bqagw3ju3o4l6" path="res://Player/explosion_frames/frame_03_delay-0.1s.png" id="15_ub3su"]
+[ext_resource type="Texture2D" uid="uid://3qh6trpvt5e5" path="res://Player/explosion_frames/frame_04_delay-0.1s.png" id="16_mjjik"]
+[ext_resource type="Texture2D" uid="uid://dluphst5xage1" path="res://Player/explosion_frames/frame_05_delay-0.1s.png" id="17_a5ham"]
+[ext_resource type="Texture2D" uid="uid://dkyy2qnj0dpav" path="res://Player/explosion_frames/frame_06_delay-0.1s.png" id="18_plt32"]
+[ext_resource type="Texture2D" uid="uid://bpdwlw2th8g22" path="res://Player/explosion_frames/frame_07_delay-0.1s.png" id="19_mth2u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mcra4"]
+animations = [{
+"frames": [{
+"duration": 0.01,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ufowq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gmfjc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7a3fu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gnatm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_clryr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_54k7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_531b8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yahut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vh8wx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jgbif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xpqu7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_smw34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ub3su")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_mjjik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_a5ham")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_plt32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_mth2u")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
 
 [node name="Player" type="Area2D"]
 position = Vector2(1.19209e-07, 9.53674e-07)
@@ -9,10 +91,13 @@ scale = Vector2(0.8, 0.8)
 script = ExtResource("1_x2lpj")
 metadata/_edit_group_ = true
 
-[node name="Texture" type="Sprite2D" parent="."]
+[node name="Seal" type="Sprite2D" parent="."]
 position = Vector2(-6.67572e-06, 1.875)
 scale = Vector2(0.0991296, 0.100494)
 texture = ExtResource("2_0yu23")
+
+[node name="Explosion" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mcra4")
 
 [node name="Hitbox" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-26.25, -25, -3.75, -30, 20, -26.25, 36.25, -16.25, 45, -2.5, 50, 15, 48.75, 25, 42.5, 32.5, 32.5, 35, -5, 35, -23.75, 32.5, -40, 28.75, -48.75, 22.5, -48.75, 1.25, -42.5, -11.25)

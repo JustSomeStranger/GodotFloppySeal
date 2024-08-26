@@ -24,7 +24,6 @@ window/size/resizable=false
 [file_customization]
 
 folder_colors={
-"res://Explosion/": "red",
 "res://Main/": "orange",
 "res://Pipes/": "yellow",
 "res://Player/": "green"
