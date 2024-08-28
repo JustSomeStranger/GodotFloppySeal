@@ -1,21 +1,56 @@
-[gd_scene load_steps=5 format=3 uid="uid://6e28roawpy67"]
+[gd_scene load_steps=6 format=3 uid="uid://6e28roawpy67"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_c7k8c"]
 [ext_resource type="PackedScene" uid="uid://caqhraosq42oc" path="res://Main/main_menu.tscn" id="2_pyw4l"]
 [ext_resource type="PackedScene" uid="uid://cej1ntkuxagcg" path="res://Player/player.tscn" id="3_8kjlj"]
 [ext_resource type="PackedScene" uid="uid://b4jrq82ju1sbr" path="res://Pipes/pipe_cheese.tscn" id="4_23uiq"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxb3p"]
+size = Vector2(806, 600)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_c7k8c")
 
 [node name="PipeTimer" type="Timer" parent="."]
+wait_time = 0.9
 
 [node name="Player" parent="." instance=ExtResource("3_8kjlj")]
 
 [node name="PipeCheese" parent="." instance=ExtResource("4_23uiq")]
 
 [node name="MainMenu" parent="." instance=ExtResource("2_pyw4l")]
-offset_right = 1000.0
-offset_bottom = 600.0
+offset_left = 0.0
+offset_top = -1.0
+offset_right = 1001.0
+offset_bottom = 599.0
+
+[node name="ScoreArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
+position = Vector2(597, 300)
+shape = SubResource("RectangleShape2D_rxb3p")
+
+[node name="Debugging" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="Debugging"]
+visibility_layer = 524288
+offset_left = 226.0
+offset_top = 25.0
+offset_right = 345.0
+offset_bottom = 127.0
+
+[node name="PlayerSpawn" type="Marker2D" parent="Debugging"]
+position = Vector2(200, 300)
+gizmo_extents = 50.0
+
+[node name="ColorRect" type="ColorRect" parent="Debugging"]
+visible = false
+offset_left = 151.0
+offset_right = 249.0
+offset_bottom = 599.0
+color = Color(1.81821e-06, 0.504377, 0.504534, 1)
 
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
+[connection signal="area_exited" from="ScoreArea" to="." method="_on_score_area_exitedd"]

@@ -3,18 +3,18 @@ extends Area2D
 signal player_died(player_position: Vector2)
 
 var game_running := false
-var screen_size : Vector2
+var screen_size: Vector2
 var velocity := 0
-@export var JUMP_VELOCITY := 500.0
-@export var TERMINAL_VELOCITY := 1200.0
-@export var GRAVITY_STRENGTH := 30.0
-@export var MAX_TILT := 0.4  # How much the seal can tilt forwards in radians
+var JUMP_VELOCITY := 500.0
+var TERMINAL_VELOCITY := 1200.0
+var GRAVITY_STRENGTH := 30.0
+var MAX_TILT := 0.4  # How much the seal can tilt forwards in radians
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
-	position = Vector2(150, screen_size.y/2)
+	position = Vector2(200, screen_size.y/2)
 	$DebugLabel.show()
 	process_mode = Node.PROCESS_MODE_DISABLED
 
