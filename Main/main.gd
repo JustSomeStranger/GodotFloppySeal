@@ -47,12 +47,13 @@ func _on_pipe_timer_timeout() -> void:
 
 func start_game() -> void:
 	game_running = true
-	$MainMenu.hide()
+	$MainMenu.close_menu()
 	$PipeTimer.start()
 	$Player.process_mode = Node.PROCESS_MODE_ALWAYS  # Unpause the player
 
 
-# JUST USE COLLISION LAYERS DUM DUM
-func _on_score_area_exitedd(area):
+
+func _on_score_area_d(area):
+	print(score)
 	score += 0.5  # Since it is a pair of pipes
 	$Debugging/Label.text = str(score)

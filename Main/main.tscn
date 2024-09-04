@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b4jrq82ju1sbr" path="res://Pipes/pipe_cheese.tscn" id="4_23uiq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxb3p"]
-size = Vector2(806, 600)
+size = Vector2(152, 600)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_c7k8c")
@@ -29,17 +29,21 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
-position = Vector2(597, 300)
+position = Vector2(76, 300)
 shape = SubResource("RectangleShape2D_rxb3p")
 
 [node name="Debugging" type="Node" parent="."]
 
 [node name="Label" type="Label" parent="Debugging"]
 visibility_layer = 524288
-offset_left = 226.0
-offset_top = 25.0
-offset_right = 345.0
-offset_bottom = 127.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.5
+offset_right = 59.5
+offset_bottom = 102.0
+grow_horizontal = 2
+horizontal_alignment = 1
 
 [node name="PlayerSpawn" type="Marker2D" parent="Debugging"]
 position = Vector2(200, 300)
@@ -53,4 +57,4 @@ offset_bottom = 599.0
 color = Color(1.81821e-06, 0.504377, 0.504534, 1)
 
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
-[connection signal="area_exited" from="ScoreArea" to="." method="_on_score_area_exitedd"]
+[connection signal="area_entered" from="ScoreArea" to="." method="_on_score_area_exitedd"]
