@@ -63,8 +63,7 @@ func _on_score_area_d(area):
 
 
 
-func _on_player_player_death():
-	$MainMenu.open_menu()
+func _on_player_death():
 	$PipeTimer.stop()
 	for pipe in active_pipes:
 		pipe.queue_free()

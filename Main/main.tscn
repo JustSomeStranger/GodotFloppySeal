@@ -56,8 +56,9 @@ offset_right = 249.0
 offset_bottom = 599.0
 color = Color(1.81821e-06, 0.504377, 0.504534, 1)
 
-[connection signal="game_started" from="." to="Player" method="_on_game_started"]
-[connection signal="game_started" from="." to="MainMenu" method="_on_game_started"]
+[connection signal="game_started" from="." to="Player" method="game_started"]
+[connection signal="game_started" from="." to="MainMenu" method="close_menu"]
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
-[connection signal="player_died" from="Player" to="." method="_on_player_player_death"]
+[connection signal="player_died" from="Player" to="." method="_on_player_death"]
+[connection signal="player_died" from="Player" to="MainMenu" method="open_menu"]
 [connection signal="area_entered" from="ScoreArea" to="." method="_on_score_area_exitedd"]
