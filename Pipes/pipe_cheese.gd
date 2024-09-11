@@ -1,6 +1,5 @@
 extends Area2D
 
-var screen_size
 @export var PIPE_SPEED = 400
 
 
@@ -12,10 +11,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position.x -= PIPE_SPEED * delta 
-	
-	var pipe_size = $Sprite2D.texture.get_size() * scale
 
 
 
 func _on_screen_exit() -> void:
 	queue_free()
+	$"..".active_pipes.remove_at(0)

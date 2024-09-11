@@ -5,6 +5,8 @@ var screen_size
 var game_running := false
 var score := 0.0
 var time_elapsed := 0
+var active_pipes := []
+signal game_started
 
 
 # Called when the node enters the scene tree for the first time.
@@ -29,13 +31,15 @@ func spawn_pipe_pair() -> void:
 	var instance = PIPE_SCENE.instantiate()
 	instance.position = \
 			Vector2(screen_size.x, offset)
+	active_pipes.append(instance)
 	add_child(instance)
 	
-	# Spawn bottom pipe
+	# Spawn bottom pipe  
 	var pipe_size = instance.get_node("Sprite2D").texture.get_size() * instance.scale
 	instance = PIPE_SCENE.instantiate()
 	instance.position = \
 			Vector2(screen_size.x, pipe_size.y + PIPE_GAP_DISTANCE + offset)
+	active_pipes.append(instance)
 	add_child(instance)
 
 
@@ -47,13 +51,20 @@ func _on_pipe_timer_timeout() -> void:
 
 func start_game() -> void:
 	game_running = true
-	$MainMenu.close_menu()
+	game_started.emit()
 	$PipeTimer.start()
-	$Player.process_mode = Node.PROCESS_MODE_ALWAYS  # Unpause the player
 
 
 
 func _on_score_area_d(area):
 	print(score)
-	score += 0.5  # Since it is a pair of pipes
+	score += 0.5  # Since the pipes spawn in pairs
 	$Debugging/Label.text = str(score)
+
+
+
+func _on_player_player_death():
+	$MainMenu.open_menu()
+	$PipeTimer.stop()
+	for pipe in active_pipes:
+		pipe.queue_free()
