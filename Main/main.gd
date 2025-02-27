@@ -1,24 +1,18 @@
 extends Node2D
 
 var PIPE_SCENE := preload("res://Pipes/pipe_cheese.tscn")
-var screen_size
-var game_running := false
+var game_state := "main_menu"
 var score := 0.0
 var time_elapsed := 0
 var active_pipes := []
+@onready var screen_size = get_viewport().size
 signal game_started
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	screen_size = get_viewport().size
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("debug"):
 		print("DEBUG KEY PRESSED")
-	if Input.is_action_just_pressed("jump") and not game_running:
+	if Input.is_action_just_pressed("jump") and game_state == "main_menu":
 		start_game()
 
 
@@ -45,12 +39,13 @@ func spawn_pipe_pair() -> void:
 
 
 func _on_pipe_timer_timeout() -> void:
-	spawn_pipe_pair()
+	if game_state == "playing":
+		spawn_pipe_pair()
 
 
 
 func start_game() -> void:
-	game_running = true
+	game_state = "playing"
 	game_started.emit()
 	$PipeTimer.start()
 
@@ -63,7 +58,23 @@ func _on_score_area_d(area):
 
 
 
-func _on_player_death():
+func remove_pipes():
 	$PipeTimer.stop()
 	for pipe in active_pipes:
 		pipe.queue_free()
+	active_pipes = []
+
+
+
+func _on_player_death():
+	game_state = "exploding"
+	$PipeTimer.stop()
+	print(len(active_pipes))
+	for pipe in active_pipes:
+		pipe.game_running = false
+
+
+
+func reset_game():
+	remove_pipes()
+	game_state = "main_menu"

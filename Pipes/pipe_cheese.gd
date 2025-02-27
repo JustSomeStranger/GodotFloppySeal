@@ -1,16 +1,17 @@
 extends Area2D
 
-@export var PIPE_SPEED = 400
+var game_running: bool
+@export var PIPE_SPEED := 400.0
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	game_running = true
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	position.x -= PIPE_SPEED * delta 
+
+func _physics_process(delta):
+	if game_running:
+		position.x -= PIPE_SPEED * delta
 
 
 

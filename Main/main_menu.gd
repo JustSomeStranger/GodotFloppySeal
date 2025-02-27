@@ -1,14 +1,18 @@
 extends Control
 
+var increment := 0.0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$LeftSidePadding/PressToStart.pivot_offset = Vector2(155/2, 23/2)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	increment += 1.5 * delta
+	$LeftSidePadding/PressToStart.rotation = 0.1 * sin(increment)
+	# $LeftSidePadding/PressToStart.size += Vector2(sin(increment), sin(increment))
 
 
 
